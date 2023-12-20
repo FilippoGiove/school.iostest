@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Edo.io.School
+
+  Created by Filippo Giove on 20/12/23.
+  
+*/
+
+"LOGOUT" = "Logout";
+"SETTINGS" = "Settings";
+"CLASSROOMS" = "Classrooms";
+"CLASSROOM" = "Classroom";
+"SEARCH_VIEW_TITLE" = "Search";
