@@ -16,7 +16,7 @@ struct SettingsView: View {
             Text("SETTINGS".localized.uppercased())
                 .font(.titleFont)
                 .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.top,topPadding)
+                .padding(.top,standardPadding)
             HStack{
                 Button {
                     presentationMode.wrappedValue.dismiss()
@@ -27,7 +27,8 @@ struct SettingsView: View {
                 }
                 Text("LOGOUT".localized)
                 Spacer()
-            }.padding(topPadding)
+            }.padding(standardPadding)
+        
             Spacer()
         }
     }

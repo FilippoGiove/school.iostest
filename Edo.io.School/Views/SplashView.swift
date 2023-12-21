@@ -27,7 +27,7 @@ struct SplashView: View {
                             .foregroundColor(.white)      .scaledToFit()
                             .font(.system(size: 100))
                             .foregroundColor(.white)
-                        Text("Edo.Io School APP")
+                        Text("edo.io.school")
                             .font(.system(size: 40))
                             .foregroundStyle(.white)
                             .minimumScaleFactor(0.01)

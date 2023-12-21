@@ -8,4 +8,6 @@
 import Foundation
 
 
-public let topPadding:CGFloat = 24
+public let standardPadding:CGFloat = 24
+
+

@@ -22,7 +22,7 @@ struct SearchView: View {
             Text("SEARCH_VIEW_TITLE".localized.uppercased())
                 .font(.titleFont)
                 .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.top,topPadding)
+                .padding(.top,standardPadding)
             NavigationStack {
                 List {
                     ForEach(searchResults, id: \.self) { name in

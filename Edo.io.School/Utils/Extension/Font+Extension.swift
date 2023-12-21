@@ -8,9 +8,12 @@
 import SwiftUI
 extension Font{
     public static var titleFont: Font {
-        Font.system(size: 18,weight: .bold)
+        Font.custom("Roboto-Bold", size: 18)
     }
     public static var contentFont: Font {
-        Font.system(size: 14)
+        Font.custom("Roboto-Regular", size: 14)
+    }
+    public static var smallFont: Font {
+        Font.custom("Roboto-Light", size: 12)
     }
 }

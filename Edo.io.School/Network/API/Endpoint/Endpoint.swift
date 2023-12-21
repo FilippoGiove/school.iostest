@@ -42,5 +42,8 @@ extension Endpoint{
     public static func getlistClassroomUrl()->String{
         return "\(getBaseurl())/classrooms"
     }
+    public static func getCreateClassroomUrl(withId id:String)->String{
+        return "\(getBaseurl())/classroom/\(id)"
+    }
 }
 

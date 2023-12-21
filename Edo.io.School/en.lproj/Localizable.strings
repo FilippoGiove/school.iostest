@@ -13,3 +13,29 @@
 "SEARCH_VIEW_TITLE" = "Search";
 
 "NO_CLASSROOM_MESSAGE" = "No classroom has been added to shool yet.\nPlease insert first to start!";
+
+"HOME" = "Home";
+"SEARCH" = "Search";
+"SETTINGS" = "Settings";
+
+"ENTER_CLASSROOM_NAME" = "Insert classroom name";
+"SAVE" = "Save";
+"CLOSE" = "Close";
+
+"ATTENTION" = "Attention";
+"ERROR_API_DETAILS" = "An error occurs!\nDetails:\n";
+
+"STUDENTS" = "Students";
+"PROFESSOR" = "Professor";
+
+"NO_PROFESSOR_ADDED" = "No professor added in this classroom";
+
+"NEW_STUDENT" = "New student";
+"NEW_CLASSROOM" = "New classroom";
+
+"ENTER_STUDENT_DATA" = "Insert new student info";
+
+"FULLNAME_REQUIRED" = "Fullname*";
+"EMAIL_REQUIRED" = "E-mail*";
+
+"ENTER_STUDENT_ERROR" = "Please insert all mandatory fields";

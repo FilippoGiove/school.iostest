@@ -24,7 +24,7 @@ struct FloatingButton: View {
                 .cornerRadius(30)
                 .shadow(radius: 10)
                 .offset(x: -25, y: 10)
-                .padding(.vertical, topPadding)
+                .padding(.vertical, standardPadding)
             }
 
         }
