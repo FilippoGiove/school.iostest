@@ -6,10 +6,17 @@
 //
 
 import Foundation
-struct Classroom: Codable {
-    let _id: String
+struct Classroom: Identifiable,Codable {
+    let id: String
     let roomName: String
     let school: String
     let students: [Student]?
     let professort:Professor?
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case roomName = "roomName"
+        case school = "school"
+        case students = "students"
+        case professort = "professort"
+    }
 }

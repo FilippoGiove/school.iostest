@@ -7,6 +7,5 @@ target 'Edo.io.School' do
 
   # Pods for Edo.io.School
   pod 'Alamofire'
-  pod 'Combine'
 
 end

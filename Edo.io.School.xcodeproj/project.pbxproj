@@ -27,6 +27,9 @@
 		EEA39E472B32C7160010C2DA /* Professor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E462B32C7160010C2DA /* Professor.swift */; };
 		EEA39E492B32C86B0010C2DA /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E482B32C86B0010C2DA /* Classroom.swift */; };
 		EEA39E4D2B32C8D10010C2DA /* ListClassroomsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E4C2B32C8D10010C2DA /* ListClassroomsResponse.swift */; };
+		EED3773F2B3418DA0041669C /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED3773E2B3418DA0041669C /* APIManager.swift */; };
+		EED377422B341A590041669C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED377412B341A590041669C /* Endpoint.swift */; };
+		EED377442B341DDF0041669C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED377432B341DDF0041669C /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,9 @@
 		EEA39E462B32C7160010C2DA /* Professor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Professor.swift; sourceTree = "<group>"; };
 		EEA39E482B32C86B0010C2DA /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
 		EEA39E4C2B32C8D10010C2DA /* ListClassroomsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListClassroomsResponse.swift; sourceTree = "<group>"; };
+		EED3773E2B3418DA0041669C /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		EED377412B341A590041669C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		EED377432B341DDF0041669C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,11 +111,11 @@
 		EEA346922B3209600049AAF0 /* Edo.io.School */ = {
 			isa = PBXGroup;
 			children = (
-				EEA39E432B32C6750010C2DA /* ViewModel */,
-				EEA39E422B32C6430010C2DA /* Network */,
 				EEA346932B3209600049AAF0 /* Edo_io_SchoolApp.swift */,
-				EEA39E2A2B32A55B0010C2DA /* Utils */,
 				EEA39E272B32A4860010C2DA /* Views */,
+				EEA39E432B32C6750010C2DA /* ViewModel */,
+				EEA39E2A2B32A55B0010C2DA /* Utils */,
+				EEA39E422B32C6430010C2DA /* Network */,
 				EEA346972B3209650049AAF0 /* Assets.xcassets */,
 				EEA346992B3209650049AAF0 /* Preview Content */,
 				EEA39E312B32A5FB0010C2DA /* Localizable.strings */,
@@ -178,6 +184,7 @@
 		EEA39E432B32C6750010C2DA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				EED377432B341DDF0041669C /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -195,9 +202,27 @@
 		EEA39E4B2B32C8BA0010C2DA /* API */ = {
 			isa = PBXGroup;
 			children = (
-				EEA39E4C2B32C8D10010C2DA /* ListClassroomsResponse.swift */,
+				EED377402B341A4A0041669C /* Endpoint */,
+				EED3773D2B3418770041669C /* ListClassrooms */,
+				EED3773E2B3418DA0041669C /* APIManager.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		EED3773D2B3418770041669C /* ListClassrooms */ = {
+			isa = PBXGroup;
+			children = (
+				EEA39E4C2B32C8D10010C2DA /* ListClassroomsResponse.swift */,
+			);
+			path = ListClassrooms;
+			sourceTree = "<group>";
+		};
+		EED377402B341A4A0041669C /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				EED377412B341A590041669C /* Endpoint.swift */,
+			);
+			path = Endpoint;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EED377442B341DDF0041669C /* HomeViewModel.swift in Sources */,
 				EEA39E2C2B32A5710010C2DA /* SideMenuRowType.swift in Sources */,
 				EEA39E382B32B6100010C2DA /* TabbedBar.swift in Sources */,
 				EEA39E362B32A8B40010C2DA /* SettingsView.swift in Sources */,
@@ -325,8 +351,10 @@
 				EEA39E3C2B32BA640010C2DA /* Font+Extension.swift in Sources */,
 				EEA39E472B32C7160010C2DA /* Professor.swift in Sources */,
 				EEA39E452B32C6C30010C2DA /* Student.swift in Sources */,
+				EED377422B341A590041669C /* Endpoint.swift in Sources */,
 				EEA346A22B320A5D0049AAF0 /* SplashView.swift in Sources */,
 				EEA346A62B320CE10049AAF0 /* ViewCoordinator.swift in Sources */,
+				EED3773F2B3418DA0041669C /* APIManager.swift in Sources */,
 				EEA39E3A2B32BA510010C2DA /* Constants.swift in Sources */,
 				EEA39E4D2B32C8D10010C2DA /* ListClassroomsResponse.swift in Sources */,
 				EEA39E3E2B32BBD80010C2DA /* SearchView.swift in Sources */,
@@ -478,6 +506,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Edo.io.School/Preview Content\"";
 				DEVELOPMENT_TEAM = J7BFLD66KP;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -508,6 +537,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Edo.io.School/Preview Content\"";
 				DEVELOPMENT_TEAM = J7BFLD66KP;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -6,11 +6,19 @@
 //
 
 import Foundation
-struct Student: Codable {
-    let _id: String
+struct Student: Identifiable,Codable {
+    let id: String
     let name: String
     let email: String
     let avatar: String
     let notes: String
     let classroom: String
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name = "name"
+        case email = "email"
+        case avatar = "avatar"
+        case notes = "notes"
+        case classroom = "classroom"
+    }
 }

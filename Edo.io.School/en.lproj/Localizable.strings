@@ -11,3 +11,5 @@
 "CLASSROOMS" = "Classrooms";
 "CLASSROOM" = "Classroom";
 "SEARCH_VIEW_TITLE" = "Search";
+
+"NO_CLASSROOM_MESSAGE" = "No classroom has been added to shool yet.\nPlease insert first to start!";
