@@ -7,30 +7,56 @@
 
 import SwiftUI
 import Foundation
+import RealmSwift
 class ClassroomViewModel: ObservableObject {
-    @Published var classroom:Classroom
+    @Published var classroomIdentidier:String
     @Published var showAlertError:Bool = false
     @Published var isLoading:Bool = false
 
 
     public var lastErrorMessage = ""
 
+    let realm = try! Realm()
+
+    var createOrUpdateClassroomRequest:Data?
+
+
 
     init(classroom: Classroom) {
-        self.classroom = classroom
+        self.classroomIdentidier = classroom.beIdentifier
     }
 
-    func setProfessor(_ professor:Professor) async{
-        self.classroom.professor = professor
-        let _ = await self.updateClassroom()
-    }
+   
 
-    func addStudent(student:Student) async{
-        if(self.classroom.students == nil){
-            self.classroom.students = []
+    func getProfessor()->Professor?{
+
+        if let classroom = realm.objects(Classroom.self).filter("beIdentifier = %@", self.classroomIdentidier).first{
+            return classroom.professor
         }
-        self.classroom.students?.append(student)
-        let _ = await self.updateClassroom()
+        else{
+            return nil
+        }
+    }
+
+
+    func getStudents()->[Student]?{
+
+        if let classroom = realm.objects(Classroom.self).filter("beIdentifier = %@", self.classroomIdentidier).first{
+            return Array(classroom.students)
+        }
+        else{
+            return nil
+        }
+    }
+
+    func getClassroom()->Classroom?{
+
+        if let classroom = realm.objects(Classroom.self).filter("beIdentifier = %@", self.classroomIdentidier).first{
+            return classroom
+        }
+        else{
+            return nil
+        }
     }
 
     func showAlertError(withMessage message:String){
@@ -39,9 +65,51 @@ class ClassroomViewModel: ObservableObject {
     }
 
 
-    func updateClassroom() async {
-        let id = classroom.id
+    public func prepareCreateOrUpdateClassroomRequest(with professor:Professor?, student:Student?){
+        if let classroom = realm.objects(Classroom.self).filter("beIdentifier = %@", self.classroomIdentidier).first{
 
+
+            let id = classroom.beIdentifier
+
+            if let url = URL(string:Endpoint.getCreateClassroomUrl(withId: id)){
+                do {
+                    print("createClassroom:URL-->\(url.absoluteString)")
+                    var request = URLRequest(url: url)
+                    request.httpMethod = "PUT"
+                    var newStudentList:[Student] = []
+                    if let student = student{
+                        newStudentList.append(contentsOf: classroom.students)
+                        newStudentList.append(student)
+                    }
+                    else{
+                        newStudentList =  Array(classroom.students)
+                    }
+
+                    var newProfessor:Professor? = nil
+                    if let professor = professor {
+                        newProfessor = professor
+                    }
+                    else{
+                        newProfessor = classroom.professor
+                    }
+
+                    let createOrUpdateClassroomRequestObj = CreateOrUpdateClassroomRequest(_id: classroom.beIdentifier, roomName: classroom.roomName, students: newStudentList, professor: newProfessor)
+
+                    do{
+                        self.createOrUpdateClassroomRequest = try JSONEncoder().encode(createOrUpdateClassroomRequestObj)
+                    }
+                    catch{
+
+                    }
+
+                }
+            }
+        }
+    }
+
+
+    func updateClassroom() async {
+        let id = self.classroomIdentidier
         if let url = URL(string:Endpoint.getCreateClassroomUrl(withId: id)){
             do {
                 DispatchQueue.main.async {
@@ -51,11 +119,7 @@ class ClassroomViewModel: ObservableObject {
                 var request = URLRequest(url: url)
                 request.httpMethod = "PUT"
 
-                let body = CreateOrUpdateClassroomRequest(_id: classroom.id, roomName: classroom.roomName, students: classroom.students, professor: classroom.professor)
-                let requestBody = try JSONEncoder().encode(body)
-                print("createClassroom:requestBody-->\(requestBody)")
-
-                request.httpBody = requestBody
+                request.httpBody = self.createOrUpdateClassroomRequest
                 request.setValue(
                     "Bearer \(Endpoint.getBearerToken())",
                     forHTTPHeaderField:  "Authorization")
@@ -64,8 +128,10 @@ class ClassroomViewModel: ObservableObject {
                     forHTTPHeaderField: "Content-Type"
                 )
                 let (data, _) = try await URLSession.shared.data(for: request)
-                self.classroom = try JSONDecoder().decode(Classroom.self, from: data)
+
+                let newClassroom = try JSONDecoder().decode(Classroom.self, from: data)
                 DispatchQueue.main.async {
+                    self.updateLocalClassroom(newClassroom)
                     self.isLoading = false
                 }
 
@@ -77,8 +143,36 @@ class ClassroomViewModel: ObservableObject {
                 self.isLoading = false
 
             }
+
         }
+
+
     }
 
 
+
+}
+
+extension ClassroomViewModel{
+    func updateLocalClassroom(_ updateClassroom:Classroom){
+
+        if let classroom = realm.objects(Classroom.self).filter("beIdentifier = %@", updateClassroom.beIdentifier).first{
+
+            do{
+                try! realm.write {
+                    classroom.students = updateClassroom.students
+                    classroom.professor = updateClassroom.professor
+                }
+            }
+            catch(let e){
+                print("updateLocalClassroom:\(self.updateLocalClassroom)")
+            }
+
+        }
+    }
+    func cleanDB(){
+        Student.deleteAll(in: realm)
+        Professor.deleteAll(in: realm)
+        Classroom.deleteAll(in: realm)
+    }
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import RealmSwift
 class HomeViewModel: ObservableObject {
     @Published var classrooms = [Classroom]()
     @Published var showAlertError:Bool = false
@@ -43,8 +44,8 @@ class HomeViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self.showClassroomDetailsView = [Bool](repeating: false, count: response.classrooms.count)
                     print("fetchClassrooms:#showClassroomDetailsView: \(self.showClassroomDetailsView.count)")
-
                     self.classrooms = response.classrooms
+                    self.updateLocalClassroom()
                     self.isLoading = false
                     print("fetchClassrooms:#Classrooms: \(self.classrooms.count)")
                 }
@@ -54,6 +55,7 @@ class HomeViewModel: ObservableObject {
                     print("fetchClassrooms:Error: \(error)")
                     self.showClassroomDetailsView = []
                     self.classrooms = []
+                    self.updateLocalClassroom()
                     self.lastErrorMessage = error.localizedDescription
                     self.showAlertError = true
                     self.isLoading = false
@@ -137,6 +139,46 @@ class HomeViewModel: ObservableObject {
 
 
     func getNextClassroomId()->String{
-        return "C\(classrooms.count + 1)"
+        let now = Date().timeIntervalSince1970
+        let school = Endpoint.getBearerToken()
+        let id = "\(now)\(school)".replacingOccurrences(of: ".", with: "")
+        return "C\(id)"
+    }
+}
+
+
+
+extension HomeViewModel{
+    func updateLocalClassroom(){
+        let realm = try! Realm()
+        cleanDB()
+        do{
+            try! realm.write {
+                realm.add(self.classrooms)
+            }
+        }
+        catch{
+        }
+
+    }
+    func cleanDB(){
+        let realm = try! Realm()
+        Student.deleteAll(in: realm)
+        Professor.deleteAll(in: realm)
+        Classroom.deleteAll(in: realm)
+    }
+}
+
+extension Object {
+    static func deleteAll(`in` realm: Realm) {
+        let allObjects = realm.objects(self)
+        do{
+            try realm.write {
+                realm.delete(allObjects)
+            }
+        }
+        catch{
+
+        }
     }
 }

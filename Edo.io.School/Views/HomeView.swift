@@ -85,7 +85,7 @@ struct HomeView: View {
                             .onDelete{ indexSet in
                                 for index in indexSet{
                                     Task {
-                                        let classroomId = self.viewModel.classrooms[index].id
+                                        let classroomId = self.viewModel.classrooms[index].beIdentifier
                                         await viewModel.deleteClassroom(withId: classroomId)
                                     }
                                 }
@@ -117,6 +117,7 @@ struct HomeView: View {
                         Task {
                             let _ =  await self.viewModel.createClassroom(withName:classroomInCreationName)
                         }
+                        classroomInCreationName = ""
                     }
                 } message: {
                     Text("ENTER_CLASSROOM_NAME".localized)

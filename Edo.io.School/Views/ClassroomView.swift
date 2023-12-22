@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-
+import RealmSwift
 struct ClassroomView: View {
 
 
@@ -33,7 +33,7 @@ struct ClassroomView: View {
             ZStack(alignment: .center){
                 LoaderView(tintColor: .red, scaleSize: 1.0).padding(0).isHidden(!viewModel.isLoading)
                 VStack{
-                    Text("\("CLASSROOM".localized.uppercased()) \(viewModel.classroom.roomName)")
+                    Text("\("CLASSROOM".localized.uppercased()) \(viewModel.getClassroom()?.roomName ?? "")")
                         .font(.titleFont).padding(standardPadding)
 
 
@@ -49,14 +49,14 @@ struct ClassroomView: View {
                             .frame(width: 30, height: 30)
                         Spacer()
                         VStack{
-                            Text(viewModel.classroom.getProfessorName())
+                            Text(viewModel.getProfessor()?.name ?? "NO_PROFESSOR_ADDED".localized)
                                 .font(.contentFont)
                         }
                         Spacer()
                         Button {
-                            self.showingAddNewStudentAlert.toggle()
+                            self.showingAddNewProfessorAlert.toggle()
                         } label: {
-                            Image(viewModel.classroom.isThereProfessor() ? "ic_arrow_right" : "ic_add")
+                            Image(viewModel.getProfessor() != nil ? "ic_arrow_right" : "ic_add")
                                 .resizable()
                                 .scaledToFit()
                                 .padding(5)
@@ -64,7 +64,7 @@ struct ClassroomView: View {
                         }
                     }
                     .padding(standardPadding)
-                    .alert("NEW_PROFESSOR".localized.uppercased(), isPresented: $showingAddNewStudentAlert) {
+                    .alert("NEW_PROFESSOR".localized.uppercased(), isPresented: $showingAddNewProfessorAlert) {
                         TextField("FULLNAME_REQUIRED".localized, text: $professorInCreationName)
                             .padding(.bottom,10)
                             .keyboardType(.alphabet)
@@ -80,26 +80,33 @@ struct ClassroomView: View {
 
                         }
                         Button("SAVE".localized){
-                            Task {
-                                if(professorInCreationName.isEmpty ||
-                                   professorInCreationEmail.isEmpty ||
-                                   professorInCreationSubjects.isEmpty){
-                                    viewModel.showAlertError(withMessage: "ENTER_PROFFESSOR_ERROR".localized)
-                                }
-                                let escapedFullname = professorInCreationName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "Avatar"
+                            if(professorInCreationName.isEmpty ||
+                               professorInCreationEmail.isEmpty ||
+                               professorInCreationSubjects.isEmpty){
+                                viewModel.showAlertError(withMessage: "ENTER_PROFFESSOR_ERROR".localized)
+                            }
+                            let escapedFullname = professorInCreationName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "Avatar"
 
-                                let id = "\(professorInCreationName)\(professorInCreationEmail)".toBase64()
+                            let id = "\(professorInCreationName)\(professorInCreationEmail)".toBase64()
 
-                                let avatarAPIUrl = "https://api.multiavatar.com/\(escapedFullname)"
+                            let avatarAPIUrl = "https://api.multiavatar.com/\(escapedFullname)"
 
-                                let _ =  await self.viewModel.setProfessor(Professor(
-                                    id: id,
+                            let professor = Professor(
+                                    _id: id,
                                     name: professorInCreationName,
                                     email: professorInCreationEmail,
                                     avatar: avatarAPIUrl,
-                                    subjects: professorInCreationSubjects.splitSubjects()
-                                ))
+                                    subjects: (professorInCreationSubjects.splitSubjects())
+                                    )
+                            self.viewModel.prepareCreateOrUpdateClassroomRequest(with: professor, student: nil)
+
+                            Task {
+                                let _ =  await self.viewModel.updateClassroom()
                             }
+
+                            professorInCreationName = ""
+                            professorInCreationEmail = ""
+                            professorInCreationSubjects = ""
                         }
                     } message: {
                         Text("ENTER_PROFESSOR_DATA".localized)
@@ -118,7 +125,7 @@ struct ClassroomView: View {
                         .padding(.top,standardPadding)
 
                     List {
-                        ForEach(viewModel.classroom.getStudents()) {
+                        ForEach(viewModel.getStudents() ?? []) {
                             item in
                             HStack{
                                 Image("ic_desc")
@@ -147,7 +154,7 @@ struct ClassroomView: View {
                         .onDelete{ indexSet in
                             for index in indexSet{
                                 Task {
-                                    let classroomId = self.viewModel.classroom.getStudents()[index].id
+                                    let classroomId = (self.viewModel.getStudents() ?? [])[index].id
                                     //await viewModel.deleteClassroom(withId: classroomId)
                                 }
                             }
@@ -177,24 +184,30 @@ struct ClassroomView: View {
 
                         }
                         Button("SAVE".localized){
-                            Task {
-                                if(studentInCreationName.isEmpty || studentInCreationEmail.isEmpty){
-                                    viewModel.showAlertError(withMessage: "ENTER_STUDENT_ERROR".localized)
-                                }
+
+                            if(studentInCreationName.isEmpty || studentInCreationEmail.isEmpty){
+                                viewModel.showAlertError(withMessage: "ENTER_STUDENT_ERROR".localized)
+                            }
+                            else{
                                 let escapedFullname = studentInCreationName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "Avatar"
 
                                 let id = "\(studentInCreationName)\(studentInCreationEmail)".toBase64()
 
                                 let avatarAPIUrl = "https://api.multiavatar.com/\(escapedFullname)"
-
-                                let _ =  await self.viewModel.addStudent(student: Student(
-                                    id: id,
+                                let studentToAdd = Student(
+                                    _id: id,
                                     name: studentInCreationName,
                                     email: studentInCreationEmail,
                                     avatar: avatarAPIUrl,
                                     notes: "",
-                                    classroom: viewModel.classroom.id))
-                            }
+                                    classroom: viewModel.classroomIdentidier)
+                                viewModel.prepareCreateOrUpdateClassroomRequest(with: nil, student: studentToAdd)
+                                Task {
+                                    let _ =  await self.viewModel.updateClassroom()
+                                }
+                                studentInCreationName = ""
+                                studentInCreationEmail = ""                            }
+
                         }
                     } message: {
                         Text("ENTER_STUDENT_DATA".localized)

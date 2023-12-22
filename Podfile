@@ -6,6 +6,6 @@ target 'Edo.io.School' do
   use_frameworks!
 
   # Pods for Edo.io.School
-  pod 'Alamofire'
+  pod 'RealmSwift'
 
 end
