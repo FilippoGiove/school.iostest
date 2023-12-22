@@ -34,8 +34,12 @@
 "NEW_CLASSROOM" = "New classroom";
 
 "ENTER_STUDENT_DATA" = "Insert new student info";
+"ENTER_PROFESSOR_DATA" = "Insert new student info";
 
 "FULLNAME_REQUIRED" = "Fullname*";
 "EMAIL_REQUIRED" = "E-mail*";
-
+"NEW_PROFESSOR" = "New professor";
 "ENTER_STUDENT_ERROR" = "Please insert all mandatory fields";
+"ENTER_PROFESSOR_ERROR" = "Please insert all mandatory fields";
+
+"SUBJECTS" = "Subjects separated by a comma";

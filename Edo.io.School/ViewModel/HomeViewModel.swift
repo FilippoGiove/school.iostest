@@ -13,6 +13,8 @@ class HomeViewModel: ObservableObject {
     @Published var isLoading:Bool = false
 
 
+    @Published var showClassroomDetailsView:[Bool] = []
+
     public var lastErrorMessage = ""
 
 
@@ -39,6 +41,9 @@ class HomeViewModel: ObservableObject {
                 let (data, _) = try await URLSession.shared.data(for: request)
                 let response = try JSONDecoder().decode(ListClassroomsResponse.self, from: data)
                 DispatchQueue.main.async {
+                    self.showClassroomDetailsView = [Bool](repeating: false, count: response.classrooms.count)
+                    print("fetchClassrooms:#showClassroomDetailsView: \(self.showClassroomDetailsView.count)")
+
                     self.classrooms = response.classrooms
                     self.isLoading = false
                     print("fetchClassrooms:#Classrooms: \(self.classrooms.count)")
@@ -47,6 +52,7 @@ class HomeViewModel: ObservableObject {
 
                 DispatchQueue.main.async {
                     print("fetchClassrooms:Error: \(error)")
+                    self.showClassroomDetailsView = []
                     self.classrooms = []
                     self.lastErrorMessage = error.localizedDescription
                     self.showAlertError = true
@@ -94,6 +100,8 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
+
+
 
     func deleteClassroom(withId id:String) async {
 

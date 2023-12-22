@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var showingAddClassroomAlert = false
-    @State private var showClassroomDetailsView = false
+
 
     @State var presentSettingsView = false
     @State private var classroomInCreationName = ""
@@ -41,9 +41,10 @@ struct HomeView: View {
                         }
                     }
                     else{
+
                         List {
-                            ForEach(viewModel.classrooms) {
-                                item in
+                            ForEach(Array(viewModel.classrooms.enumerated()), id: \.offset) {
+                                index, item in
                                 HStack{
                                     VStack{
                                         Image("ic_classroom")
@@ -54,27 +55,30 @@ struct HomeView: View {
                                         Text("CLASSROOM".localized)
                                             .font(.contentFont)
                                     }
-                                    Spacer()
+
                                     VStack{
                                         Text(item.roomName.uppercased())
                                             .font(.contentFont)
                                         Text(item.getNumStudentFormattedString())
                                             .font(.smallFont)
-                                    }
+                                    }.padding(.leading,standardPadding)
 
                                     Spacer()
-                                    Button {
-                                        self.showClassroomDetailsView.toggle()
+                                    NavigationStack{
+                                        Button {
+                                            self.viewModel.showClassroomDetailsView[index].toggle()
+                                            //self.showClassroomDetailsView.toggle()
 
-                                    } label: {
-                                        Image("ic_arrow_right")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .padding(5)
-                                            .frame(width: 30, height: 30)
-                                    }.sheet(isPresented: $showClassroomDetailsView){
-                                        ClassroomView(item)
+                                        } label: {
+                                            NavigationLink(destination: ClassroomView(item), isActive: $viewModel.showClassroomDetailsView[index], label: {EmptyView()})
+                                        }
                                     }
+
+
+
+                                    /*.sheet(isPresented: $viewModel.showClassroomDetailsView[index]){
+                                        ClassroomView(item)
+                                    }*/
                                 }.padding(.top,10)
 
                             }
@@ -86,7 +90,12 @@ struct HomeView: View {
                                     }
                                 }
                             }
-                        }.scrollContentBackground(.hidden)
+
+                        }
+                        .refreshable {
+                            await viewModel.fetchClassrooms()
+                        }
+                        .scrollContentBackground(.hidden)
                     }
 
                 }
@@ -125,16 +134,3 @@ struct HomeView: View {
     }
 }
 
-//gestire apertura classe
-var body: some View {
-        NavigationStack {
-            List(players, id: \.self) { player in
-                NavigationLink {
-                    PlayerView(name: player)
-                } label: {
-                    Text(player)
-                }
-            }
-            .navigationTitle("Select a player")
-        }
-    }

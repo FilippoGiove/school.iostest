@@ -27,4 +27,8 @@ extension String {
         return Data(self.utf8).base64EncodedString()
     }
 
+    func splitSubjects()->[String]{
+        return self.components(separatedBy: ",")
+    }
+
 }

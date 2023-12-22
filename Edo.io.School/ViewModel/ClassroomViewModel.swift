@@ -20,6 +20,11 @@ class ClassroomViewModel: ObservableObject {
         self.classroom = classroom
     }
 
+    func setProfessor(_ professor:Professor) async{
+        self.classroom.professor = professor
+        let _ = await self.updateClassroom()
+    }
+
     func addStudent(student:Student) async{
         if(self.classroom.students == nil){
             self.classroom.students = []
