@@ -67,18 +67,18 @@ struct HomeView: View {
                                     NavigationStack{
                                         Button {
                                             self.viewModel.showClassroomDetailsView[index].toggle()
-                                            //self.showClassroomDetailsView.toggle()
 
                                         } label: {
-                                            NavigationLink(destination: ClassroomView(item), isActive: $viewModel.showClassroomDetailsView[index], label: {EmptyView()})
+                                            Image("ic_arrow_right")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding(5)
+                                                .frame(width: 30, height: 30)
                                         }
+                                    }.navigationDestination(
+                                        isPresented: $viewModel.showClassroomDetailsView[index]) {
+                                            ClassroomView(item)
                                     }
-
-
-
-                                    /*.sheet(isPresented: $viewModel.showClassroomDetailsView[index]){
-                                        ClassroomView(item)
-                                    }*/
                                 }.padding(.top,10)
 
                             }

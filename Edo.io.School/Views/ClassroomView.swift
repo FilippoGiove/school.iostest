@@ -54,7 +54,12 @@ struct ClassroomView: View {
                         }
                         Spacer()
                         Button {
-                            self.showingAddNewProfessorAlert.toggle()
+                            if(viewModel.getProfessor() != nil){
+
+                            }
+                            else{
+                                self.showingAddNewProfessorAlert.toggle()
+                            }
                         } label: {
                             Image(viewModel.getProfessor() != nil ? "ic_arrow_right" : "ic_add")
                                 .resizable()
