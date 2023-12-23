@@ -32,7 +32,7 @@ struct TabbedBar: View {
                         .tabItem {
                             Label("SETTINGS".localized, systemImage: "gearshape")
                         }
-                        .tag(1)
+                        .tag(2)
                 }
         .toolbar(.visible, for: .tabBar)
         //.toolbarColorScheme(.light, for: .tabBar)

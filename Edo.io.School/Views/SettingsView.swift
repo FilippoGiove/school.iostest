@@ -9,7 +9,9 @@ import Foundation
 import SwiftUI
 import RealmSwift
 struct SettingsView: View {
-    @Environment(\.presentationMode) var presentationMode
+
+    @StateObject private var viewModel = SettingsViewModel()
+
 
     var body: some View {
         VStack{
@@ -19,8 +21,7 @@ struct SettingsView: View {
                 .padding(.top,standardPadding)
             HStack{
                 Button {
-                    cleanDB()
-                    presentationMode.wrappedValue.dismiss()
+                    viewModel.cleanDB()
                 } label: {
                     Image("ic_logout")
                         .font(.largeTitle)
@@ -32,12 +33,14 @@ struct SettingsView: View {
         
             Spacer()
         }
+        .alert("".localized, isPresented:$viewModel.showAlerteMessage) {
+            Button("CLOSE".localized, role: .cancel) {
+
+            }
+        } message: {
+            Text("\(viewModel.alertMessage)")
+        }
     }
 
-    func cleanDB(){
-        let realm = try! Realm()
-        Student.deleteAll(in: realm)
-        Professor.deleteAll(in: realm)
-        Classroom.deleteAll(in: realm)
-    }
+   
 }

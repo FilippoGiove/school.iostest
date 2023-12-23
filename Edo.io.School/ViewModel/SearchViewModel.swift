@@ -13,64 +13,49 @@ class SearchViewModel: ObservableObject {
     var students:[Student] = []
     var professors:[Professor] = []
 
-    var filteredStudents:[Student] = []
-    var filteredProfessors:[Professor] = []
 
 
-
-
-
-    func initSearchData(){
-        getAllStudents()
-        getAllProfessors()
-
+    func clearDependencies(){
+        students = []
+        professors = []
+    
     }
-
-    private func getAllStudents(){
+    func initSearchDatasource(){
         let realm = try! Realm()
-        let studentsFromRealm = realm.objects(Student.self)
-        self.students = Array(studentsFromRealm)
-        print("FOUND:\(students.count) students")
+        self.students = Array(realm.objects(Student.self))
+        self.professors = Array( realm.objects(Professor.self))
     }
 
-    private func getAllProfessors(){
-        let realm = try! Realm()
-        let professorsFromRealm = realm.objects(Professor.self)
-        self.professors = Array(professorsFromRealm)
-        print("FOUND:\(professors.count) professors")
 
-    }
-
-    public func findAllStudents(withName searchText:String){
+    public func findAllStudents(withName searchText:String)->[Student]{
         print("findAllStudents")
+        var result:[Student] = []
         if(searchText.isEmpty){
-            let realm = try! Realm()
-            let studentsFromRealm = realm.objects(Student.self)
-            self.students = Array(studentsFromRealm)
-            self.filteredStudents = self.students
+            result = []//self.students
         }
         else{
-            self.filteredStudents =  (students).filter {
+            result =  students.filter {
                 $0.name.lowercased().contains(searchText.lowercased())
             }
         }
+        return result
+
 
     }
 
-    public func findAllProfessors(withName searchText:String){
-        print("findAllStudents")
-
+    public func findAllProfessors(withName searchText:String)->[Professor]{
+        print("findAllProfessors")
+        var result:[Professor] = []
+        
         if(searchText.isEmpty){
-            let realm = try! Realm()
-            let professorsFromRealm = realm.objects(Professor.self)
-            self.professors = Array(professorsFromRealm)
-            self.filteredProfessors = self.professors
+            return []//self.professors
         }
-        else{
-            self.filteredProfessors = (professors).filter {
+       else{
+            result = professors.filter {
                 $0.name.lowercased().contains(searchText.lowercased())
             }
         }
+        return result
 
     }
 

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+
+
     @State private var showingAddClassroomAlert = false
 
 
@@ -92,14 +94,12 @@ struct HomeView: View {
 
                         }
                         .refreshable {
+                            UserDefaults.standard.set(false, forKey: "edo.io.delete.db")
                             await viewModel.fetchClassrooms()
                         }
                         .scrollContentBackground(.hidden)
                     }
 
-                }
-                .task {
-                    await viewModel.fetchClassrooms()
                 }
                 .padding(.top,standardPadding)
                 FloatingButton(action: {
@@ -129,6 +129,16 @@ struct HomeView: View {
                 }
             } message: {
                 Text("\("ERROR_API_DETAILS".localized.uppercased())\n\(viewModel.lastErrorMessage)")
+            }
+        }.onAppear{
+            let dbInvalidate = (UserDefaults.standard.object(forKey: "edo.io.delete.db") as? Bool) ?? false
+            if(dbInvalidate){
+                viewModel.classrooms = []
+            }
+            else{
+                Task{
+                   await self.viewModel.fetchClassrooms()
+                }
             }
         }
     }

@@ -13,6 +13,7 @@
 		EE0CAEFF2B36B4BC006F3211 /* ProfessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAEFE2B36B4BC006F3211 /* ProfessorView.swift */; };
 		EE0CAF012B36B51D006F3211 /* ProfessorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAF002B36B51D006F3211 /* ProfessorViewModel.swift */; };
 		EE0CAF032B36BDC2006F3211 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAF022B36BDC2006F3211 /* RealmHelper.swift */; };
+		EE0CAF062B36CDC0006F3211 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAF052B36CDC0006F3211 /* SettingsViewModel.swift */; };
 		EE92DA302B35DD4B00BFB99B /* Realm+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE92DA2F2B35DD4B00BFB99B /* Realm+Codable.swift */; };
 		EE92DA342B36126200BFB99B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE92DA332B36126100BFB99B /* SearchViewModel.swift */; };
 		EEA346942B3209600049AAF0 /* Edo_io_SchoolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA346932B3209600049AAF0 /* Edo_io_SchoolApp.swift */; };
@@ -58,6 +59,7 @@
 		EE0CAEFE2B36B4BC006F3211 /* ProfessorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorView.swift; sourceTree = "<group>"; };
 		EE0CAF002B36B51D006F3211 /* ProfessorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorViewModel.swift; sourceTree = "<group>"; };
 		EE0CAF022B36BDC2006F3211 /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		EE0CAF052B36CDC0006F3211 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		EE92DA2F2B35DD4B00BFB99B /* Realm+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Codable.swift"; sourceTree = "<group>"; };
 		EE92DA332B36126100BFB99B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		EEA346902B3209600049AAF0 /* Edo.io.School.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Edo.io.School.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +235,7 @@
 				EE92DA332B36126100BFB99B /* SearchViewModel.swift */,
 				EE0CAEFC2B36A8AE006F3211 /* StudentViewModel.swift */,
 				EE0CAF002B36B51D006F3211 /* ProfessorViewModel.swift */,
+				EE0CAF052B36CDC0006F3211 /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				EE0CAEFB2B369437006F3211 /* StudentView.swift in Sources */,
 				EED3775F2B34B0C10041669C /* ClassroomViewModel.swift in Sources */,
 				EEA346A62B320CE10049AAF0 /* ViewCoordinator.swift in Sources */,
+				EE0CAF062B36CDC0006F3211 /* SettingsViewModel.swift in Sources */,
 				EED3773F2B3418DA0041669C /* APIManager.swift in Sources */,
 				EE92DA342B36126200BFB99B /* SearchViewModel.swift in Sources */,
 				EEA39E3A2B32BA510010C2DA /* Constants.swift in Sources */,
@@ -530,7 +534,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -587,7 +591,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -616,6 +620,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -648,6 +653,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

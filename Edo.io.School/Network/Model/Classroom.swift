@@ -70,7 +70,7 @@ class Classroom: Object,Identifiable, Codable  {
      }
 
     public func getNumStudentFormattedString()->String{
-        let studentsCount = self.students.count ?? 0
+        let studentsCount = self.students.count
         if /*let studentsCount = self.students?.count,studentsCount > 0*/  studentsCount > 0{
             return "(\(studentsCount) \("STUDENTS".localized) )"
         }

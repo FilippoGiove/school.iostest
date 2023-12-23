@@ -45,7 +45,10 @@
 "SUBJECTS" = "Subjects";
 "FULLNAME" = "Fullname";
 
-"STUDENTS_FOUND" = "Students founds: ";
-"PROFESSORS_FOUND" = "Professors founds: ";
+"STUDENTS_FOUND" = "Students founds";
+"PROFESSORS_FOUND" = "Professors founds";
 "BASIC_INFO" = "Basic Information";
 "SAVE" = "Save";
+
+"DB_DELETED" = "App data has been raised.";
+"SEARCH_PLACEHOLDER" = "Search professors / students";

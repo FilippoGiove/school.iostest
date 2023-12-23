@@ -16,7 +16,6 @@ struct StudentView: View {
         self.viewModel = StudentViewModel(student: student)
     }
 
-    @State private var enableBlogger = true
     var body: some View {
         NavigationView {
             ZStack(alignment: .center){
