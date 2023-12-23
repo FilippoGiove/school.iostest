@@ -123,10 +123,8 @@ struct ClassroomStudentView: View {
                         .foregroundColor(.black)
                         .frame(width: 24, height: 24)
                     Spacer()
-                    VStack{
-                        Text(item.name.uppercased())
-                            .font(.contentFont)
-                    }
+                    Text(item.name.uppercased())
+                        .font(.contentFont)
                     Spacer()
                         Button {
                             self.viewModel.showStudentsDetailsView[index].toggle()
@@ -140,7 +138,9 @@ struct ClassroomStudentView: View {
                             isPresented:$viewModel.showStudentsDetailsView[index]){
                                 StudentView(item)
                         }
-                }.padding(.top,0)
+                }
+                .padding(.top,0)
+                 .listRowSeparator(.hidden)
 
             }
             .onDelete{ indexSet in
@@ -181,7 +181,7 @@ struct ClassroomProfessorView: View {
         self.viewModel = viewModel
     }
     var body: some View {
-        Text("\("PROFESSOR".localized.uppercased())")
+                        Text("\("PROFESSOR".localized.uppercased())")
                             .font(.titleFont)
                             .padding(.top,standardPadding)
 
@@ -212,7 +212,10 @@ struct ClassroomProfessorView: View {
                                     .frame(width: 30, height: 30)
                             }.navigationDestination(
                                 isPresented:$viewModel.testShow){
-                                    ProfessorView(viewModel.getProfessor()!, idClassroom: viewModel.classroomIdentidier)
+                                    if(viewModel.getProfessor() != nil){
+                                        ProfessorView(viewModel.getProfessor()!, idClassroom: viewModel.classroomIdentidier)
+                                    }
+
                             }
                         }
                         .padding(standardPadding)
@@ -248,7 +251,8 @@ struct ClassroomProfessorView: View {
                                         name: professorInCreationName,
                                         email: professorInCreationEmail,
                                         avatar: avatarAPIUrl,
-                                        subjects: (professorInCreationSubjects.splitSubjects())
+                                        subjects: (professorInCreationSubjects.splitSubjects()),
+                                        classroom: viewModel.classroomIdentidier
                                         )
                                 self.viewModel.prepareCreateOrUpdateClassroomRequest(with: professor, student: nil)
 

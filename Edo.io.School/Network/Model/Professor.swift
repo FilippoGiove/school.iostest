@@ -10,18 +10,22 @@ import RealmSwift
 
 class Professor: Object,Identifiable, Codable  {
     @Persisted(primaryKey: true) var id: ObjectId
-
     @Persisted var beIdentifier: String
     @Persisted var name: String
     @Persisted var email: String
     @Persisted var avatar: String
     @Persisted var subjects: List<String>
+
+    @Persisted var classroom: String
+
     enum CodingKeys: String, CodingKey {
         case beIdentifier = "_id"
         case name = "name"
         case email = "email"
         case avatar = "avatar"
         case subjects = "subjects"
+        case classroom = "classroom"
+
     }
 
     func encode(to encoder: Encoder) throws {
@@ -31,6 +35,7 @@ class Professor: Object,Identifiable, Codable  {
             try container.encode(email, forKey: .email)
             try container.encode(avatar, forKey: .avatar)
             try container.encode(subjects, forKey: .subjects)
+            try container.encodeIfPresent(classroom, forKey: .classroom)
 
         }
 
@@ -42,6 +47,7 @@ class Professor: Object,Identifiable, Codable  {
             name = try container.decode(String.self, forKey: .name)
             email = try container.decode(String.self, forKey: .email)
             avatar = try container.decode(String.self, forKey: .avatar)
+            classroom = try container.decodeIfPresent(String.self, forKey: .classroom) ?? ""
             let subjectsList = try container.decode(List<String>.self, forKey: .subjects)
             subjects.append(objectsIn: subjectsList)
         }
@@ -54,7 +60,8 @@ class Professor: Object,Identifiable, Codable  {
                      name: String,
                      email: String,
                      avatar:String,
-                     subjects: [String]
+                     subjects: [String],
+                     classroom:String
             ) {
         self.init()
         self.beIdentifier = _id
@@ -65,5 +72,6 @@ class Professor: Object,Identifiable, Codable  {
         for s in subjects{
             self.subjects.append(s)
         }
+        self.classroom = classroom
      }
 }

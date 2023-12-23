@@ -14,11 +14,10 @@ class SearchViewModel: ObservableObject {
     var professors:[Professor] = []
 
 
-
     func clearDependencies(){
         students = []
         professors = []
-    
+       
     }
     func initSearchDatasource(){
         let realm = try! Realm()
@@ -31,7 +30,7 @@ class SearchViewModel: ObservableObject {
         print("findAllStudents")
         var result:[Student] = []
         if(searchText.isEmpty){
-            result = []//self.students
+            result = []
         }
         else{
             result =  students.filter {
@@ -48,7 +47,7 @@ class SearchViewModel: ObservableObject {
         var result:[Professor] = []
         
         if(searchText.isEmpty){
-            return []//self.professors
+            return []
         }
        else{
             result = professors.filter {

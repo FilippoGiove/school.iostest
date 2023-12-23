@@ -113,10 +113,11 @@ struct HomeView: View {
 
                     }
                     Button("SAVE".localized){
+
                         Task {
                             let _ =  await self.viewModel.createClassroom(withName:classroomInCreationName)
                         }
-                        classroomInCreationName = ""
+                        //classroomInCreationName = ""
                     }
                 } message: {
                     Text("ENTER_CLASSROOM_NAME".localized)

@@ -13,6 +13,8 @@ struct SearchView: View {
     @State var presentDetails = false
 
     
+
+
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont.systemFont(ofSize: 18)]
         self.viewModel = SearchViewModel()
@@ -36,8 +38,8 @@ struct SearchView: View {
 
 
                     List {
-                        ForEach(searchProfessortsResults) {
-                            professor in
+                        ForEach(Array((searchProfessortsResults).enumerated()), id: \.offset) {
+                            index, professor in
                             HStack{
                                 Image("ic_professor")
                                     .resizable()
@@ -50,24 +52,27 @@ struct SearchView: View {
                                         .font(.contentFont)
                                 }
                                 Spacer()
-                                Button {
+                                
+
+                                NavigationLink {
+                                    ProfessorView(professor, idClassroom: professor.classroom)
                                 } label: {
-                                    Image("ic_arrow_right")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .padding(5)
-                                        .frame(width: 30, height: 30)
-                                }.navigationDestination(
-                                    isPresented: $presentDetails) {
-                                        Text("TAP ON \(professor.name)")
+                                    EmptyView()
                                 }
+                                .frame(width: 0).opacity(0)
+                                
+                                Image("ic_arrow_right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding(5)
+                                    .frame(width: 30, height: 30)
+
+                
 
                             }.padding(.top,0)
                             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         }
                     }.scrollContentBackground(.hidden)
-
-                    //Divider().padding(standardPadding)
                 }
 
                 if(searchStudentsResults.count > 0){
@@ -75,8 +80,8 @@ struct SearchView: View {
                         .font(.contentFontBold)
                         .padding(.top,standardPadding)
                     List {
-                        ForEach(searchStudentsResults, id: \.self) {
-                            student in
+                        ForEach(Array((searchStudentsResults).enumerated()), id: \.offset) {
+                            index, student in
                             HStack{
                                 Image("ic_desc")
                                     .resizable()
@@ -86,27 +91,28 @@ struct SearchView: View {
 
                                 Spacer()
                                 VStack{
-                                    Text(student.name.uppercased())
+                                    Text((student as! Student).name.uppercased())
                                         .font(.contentFont)
                                 }
                                 Spacer()
-                                NavigationStack{
-                                    Button {
-                                    } label: {
-                                        Image("ic_arrow_right")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .padding(5)
-                                            .frame(width: 30, height: 30)
-                                    }
-                                }.navigationDestination(
-                                    isPresented: $presentDetails) {
-                                        Text("TAP ON \(student.name)")
+
+                                NavigationLink {
+                                    StudentView(student)
+                                } label: {
+                                    EmptyView()
                                 }
+                                .frame(width: 0).opacity(0)
+
+                                Image("ic_arrow_right")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding(5)
+                                    .frame(width: 30, height: 30)
                             }.padding(.top,0)
                             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         }
-                    }.scrollContentBackground(.hidden)
+                    }
+                    .scrollContentBackground(.hidden)
                 }
 
             }
@@ -132,14 +138,10 @@ struct SearchView: View {
 
     var prevProf = ""
     var searchStudentsResults: [Student] {
-        print("searchStudentsResults WITH \(searchText)")
         return viewModel.findAllStudents(withName: searchText)
-
     }
 
     var searchProfessortsResults: [Professor] {
-        print("searchProfessortsResults WITH \(searchText)")
         return viewModel.findAllProfessors(withName: searchText)
-
     }
 }
