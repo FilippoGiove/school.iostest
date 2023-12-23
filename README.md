@@ -1,4 +1,4 @@
-#Edo.io.school - iOS test
+# Edo.io.school - iOS test
 
 The repository contains an iOS mobile application that serves as a digital representation of a school.
 
