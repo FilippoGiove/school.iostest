@@ -212,7 +212,7 @@ struct ClassroomProfessorView: View {
                                     .frame(width: 30, height: 30)
                             }.navigationDestination(
                                 isPresented:$viewModel.testShow){
-                                   ProfessorView(viewModel.getProfessor()!)
+                                    ProfessorView(viewModel.getProfessor()!, idClassroom: viewModel.classroomIdentidier)
                             }
                         }
                         .padding(standardPadding)
