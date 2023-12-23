@@ -21,6 +21,7 @@ class ClassroomViewModel: ObservableObject {
     var createOrUpdateClassroomRequest:Data?
 
     @Published var notshowProfessorDetailsView:Bool = false
+    @Published var testShow:Bool = false
 
     @Published var showStudentsDetailsView:[Bool] = []
     @Published var showProfessorDetailsView:Bool = false
@@ -30,6 +31,7 @@ class ClassroomViewModel: ObservableObject {
 
     init(classroom: Classroom) {
         self.classroomIdentidier = classroom.beIdentifier
+        self.showStudentsDetailsView = [Bool](repeating: false, count: classroom.students.count)
     }
 
    
@@ -48,9 +50,6 @@ class ClassroomViewModel: ObservableObject {
     func getStudents()->[Student]?{
 
         if let classroom = realm.objects(Classroom.self).filter("beIdentifier = %@", self.classroomIdentidier).first{
-            DispatchQueue.main.async {
-                self.showStudentsDetailsView = [Bool](repeating: false, count: classroom.students.count)
-            }
             return Array(classroom.students)
         }
         else{
@@ -212,6 +211,8 @@ extension ClassroomViewModel{
                     classroom.students = updateClassroom.students
                     classroom.professor = updateClassroom.professor
                 }
+                self.showStudentsDetailsView = [Bool](repeating: false, count: classroom.students.count)
+
             }
             catch(let e){
                 print("updateLocalClassroom:\(self.updateLocalClassroom)")

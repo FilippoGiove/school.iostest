@@ -7,5 +7,8 @@ target 'Edo.io.School' do
 
   # Pods for Edo.io.School
   pod 'RealmSwift'
+  pod 'SDWebImageSwiftUI'
+  pod 'SDWebImageSVGCoder'
+
 
 end

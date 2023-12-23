@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-
+import RealmSwift
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
 
@@ -19,6 +19,7 @@ struct SettingsView: View {
                 .padding(.top,standardPadding)
             HStack{
                 Button {
+                    cleanDB()
                     presentationMode.wrappedValue.dismiss()
                 } label: {
                     Image("ic_logout")
@@ -31,5 +32,12 @@ struct SettingsView: View {
         
             Spacer()
         }
+    }
+
+    func cleanDB(){
+        let realm = try! Realm()
+        Student.deleteAll(in: realm)
+        Professor.deleteAll(in: realm)
+        Classroom.deleteAll(in: realm)
     }
 }

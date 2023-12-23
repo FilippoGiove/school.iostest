@@ -42,53 +42,53 @@ struct ClassroomView: View {
 
                 ClassroomStudentView(viewModel)
 
-                FloatingButton(action: {
-                    DispatchQueue.main.async {
-                        self.showingAddNewStudentAlert.toggle()
-                    }
-                }, icon: "plus")
-                .alert("NEW_STUDENT".localized.uppercased(), isPresented: $showingAddNewStudentAlert) {
-                    TextField("FULLNAME_REQUIRED".localized, text: $studentInCreationName).padding(.bottom,10)
-                    TextField("EMAIL_REQUIRED".localized, text: $studentInCreationEmail)
-                        .keyboardType(.emailAddress)
-                        .textInputAutocapitalization(.never)
 
-                    Button("CLOSE".localized, role: .cancel) {
-
-                    }
-                    Button("SAVE".localized){
-
-                        if(studentInCreationName.isEmpty || studentInCreationEmail.isEmpty){
-                            viewModel.showAlertError(withMessage: "ENTER_STUDENT_ERROR".localized)
-                        }
-                        else{
-                            let escapedFullname = studentInCreationName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "Avatar"
-
-                            let id = "\(studentInCreationName)\(studentInCreationEmail)".toBase64()
-
-                            let avatarAPIUrl = "https://api.multiavatar.com/\(escapedFullname)"
-                            let studentToAdd = Student(
-                                _id: id,
-                                name: studentInCreationName,
-                                email: studentInCreationEmail,
-                                avatar: avatarAPIUrl,
-                                notes: "",
-                                classroom: viewModel.classroomIdentidier)
-                            viewModel.prepareCreateOrUpdateClassroomRequest(with: nil, student: studentToAdd)
-                            Task {
-                                let _ =  await self.viewModel.updateClassroom()
-                            }
-                            studentInCreationName = ""
-                            studentInCreationEmail = ""
-                        }
-
-                    }
-                } message: {
-                    Text("ENTER_STUDENT_DATA".localized)
-                        .font(.contentFont)
-                }
             }
-            .task {
+
+            FloatingButton(action: {
+                DispatchQueue.main.async {
+                    self.showingAddNewStudentAlert.toggle()
+                }
+            }, icon: "plus")
+            .alert("NEW_STUDENT".localized.uppercased(), isPresented: $showingAddNewStudentAlert) {
+                TextField("FULLNAME_REQUIRED".localized, text: $studentInCreationName).padding(.bottom,10)
+                TextField("EMAIL_REQUIRED".localized, text: $studentInCreationEmail)
+                    .keyboardType(.emailAddress)
+                    .textInputAutocapitalization(.never)
+
+                Button("CLOSE".localized, role: .cancel) {
+
+                }
+                Button("SAVE".localized){
+
+                    if(studentInCreationName.isEmpty || studentInCreationEmail.isEmpty){
+                        viewModel.showAlertError(withMessage: "ENTER_STUDENT_ERROR".localized)
+                    }
+                    else{
+                        let escapedFullname = studentInCreationName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "Avatar"
+
+                        let id = "\(studentInCreationName)\(studentInCreationEmail)".toBase64()
+
+                        let avatarAPIUrl = "https://api.multiavatar.com/\(escapedFullname)"
+                        let studentToAdd = Student(
+                            _id: id,
+                            name: studentInCreationName,
+                            email: studentInCreationEmail,
+                            avatar: avatarAPIUrl,
+                            notes: "",
+                            classroom: viewModel.classroomIdentidier)
+                        viewModel.prepareCreateOrUpdateClassroomRequest(with: nil, student: studentToAdd)
+                        Task {
+                            let _ =  await self.viewModel.updateClassroom()
+                        }
+                        studentInCreationName = ""
+                        studentInCreationEmail = ""
+                    }
+
+                }
+            } message: {
+                Text("ENTER_STUDENT_DATA".localized)
+                    .font(.contentFont)
             }
 
         }.alert("ATTENTION".localized, isPresented:$viewModel.showAlertError) {
@@ -98,8 +98,9 @@ struct ClassroomView: View {
         } message: {
             Text("\("ERROR_API_DETAILS".localized.uppercased())\n\(viewModel.lastErrorMessage)")
         }
-        //}
+
     }
+    //}
 }
 
 
@@ -127,39 +128,18 @@ struct ClassroomStudentView: View {
                             .font(.contentFont)
                     }
                     Spacer()
-                    Button {
-
-                        self.viewModel.showStudentsDetailsView[index].toggle()
-                        print("TAP ON \(index) -->\(self.viewModel.showStudentsDetailsView[index])")
-
-                    } label: {
-                        Image("ic_arrow_right")
-                            .resizable()
-                            .scaledToFit()
-                            .padding(5)
-                            .frame(width: 30, height: 30)
-                    }.sheet(isPresented: index >= $viewModel.showStudentsDetailsView.count ? $viewModel.notshowProfessorDetailsView : $viewModel.showStudentsDetailsView[index]) {
-                               StudentView()
-                    }
-                    /*NavigationStack{
                         Button {
-
                             self.viewModel.showStudentsDetailsView[index].toggle()
-                            print("TAP ON \(index) -->\(self.viewModel.showStudentsDetailsView[index])")
-
                         } label: {
                             Image("ic_arrow_right")
                                 .resizable()
                                 .scaledToFit()
                                 .padding(5)
                                 .frame(width: 30, height: 30)
+                        }.navigationDestination(
+                            isPresented:$viewModel.showStudentsDetailsView[index]){
+                                StudentView(item)
                         }
-                    }.navigationDestination(
-                        isPresented:(index >= $viewModel.showStudentsDetailsView.count ? $viewModel.notshowProfessorDetailsView : $viewModel.showStudentsDetailsView[index])
-                    )
-                        {
-                            StudentView()
-                    }*/
                 }.padding(.top,0)
 
             }

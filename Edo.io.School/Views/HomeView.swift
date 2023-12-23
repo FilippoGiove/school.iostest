@@ -64,7 +64,6 @@ struct HomeView: View {
                                     }.padding(.leading,standardPadding)
 
                                     Spacer()
-                                    NavigationStack{
                                         Button {
                                             self.viewModel.showClassroomDetailsView[index].toggle()
 
@@ -75,7 +74,7 @@ struct HomeView: View {
                                                 .padding(5)
                                                 .frame(width: 30, height: 30)
                                         }
-                                    }.navigationDestination(
+                                        .navigationDestination(
                                         isPresented: $viewModel.showClassroomDetailsView[index]) {
                                             ClassroomView(item)
                                     }

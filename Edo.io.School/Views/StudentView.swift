@@ -6,45 +6,54 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+
 struct StudentView: View {
+
+    @ObservedObject var viewModel:StudentViewModel
+
+    init(_ student: Student) {
+        self.viewModel = StudentViewModel(student: student)
+    }
+
     @State private var enableBlogger = true
     var body: some View {
         NavigationView {
             Form {
                 HStack {
                     Spacer()
-                    Image("anmol")
+                    WebImage(url: URL(string: viewModel.student.avatar))
                         .resizable()
+                        .placeholder {ProgressView()}
                         .clipped()
-                        .frame(width: 100, height: 100, alignment: .center)
                         .clipShape(Circle())
                         .overlay(Circle().stroke(Color.blue, lineWidth: 2.0))
+                        .scaledToFit()
+                        .frame(width: 100, height: 100, alignment: .center)
+
                     Spacer()
-                }
+                }.listRowBackground(Color.clear)
 
                 Section(header: Text("Basic Information")) {
                     HStack {
-                        Text("First Name")
-                        Spacer(minLength: 100)
-                        Text("Anmol")
+                        Text("Full Name").padding(.trailing,100)
+                        TextEditor(text: $viewModel.student.name).lineLimit(1)
                     }
                     HStack {
-                        Text("Last Name")
-                        Spacer(minLength: 100)
-                        Text("Maheshwari")
+                        Text("EMAIL".localized).padding(.trailing,100)
+                        TextEditor(text: $viewModel.student.email).lineLimit(1)
                     }
                 }
-                Section(header: Text("Additional")) {
-                    HStack {
-                        Text("Gender")
-                        Spacer(minLength: 100)
-                        Text("Male")
-                    }
-                    Toggle(isOn: $enableBlogger) {
-                        Text("Blogger")
-                    }
+                Section(header: Text("CLASSROOM".localized)) {
+                    Text(viewModel.student.classroom)
                 }
-            }.navigationBarTitle(Text("Profile"))
+
+                Section(header: Text("Notes")) {
+                    TextEditor(text: $viewModel.student.notes)
+                        .lineLimit(10)
+                        .frame(height: 100)
+                }
+            }
         }
     }
 }
