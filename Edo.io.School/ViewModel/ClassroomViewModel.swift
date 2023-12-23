@@ -20,6 +20,12 @@ class ClassroomViewModel: ObservableObject {
 
     var createOrUpdateClassroomRequest:Data?
 
+    @Published var notshowProfessorDetailsView:Bool = false
+
+    @Published var showStudentsDetailsView:[Bool] = []
+    @Published var showProfessorDetailsView:Bool = false
+
+
 
 
     init(classroom: Classroom) {
@@ -42,6 +48,9 @@ class ClassroomViewModel: ObservableObject {
     func getStudents()->[Student]?{
 
         if let classroom = realm.objects(Classroom.self).filter("beIdentifier = %@", self.classroomIdentidier).first{
+            DispatchQueue.main.async {
+                self.showStudentsDetailsView = [Bool](repeating: false, count: classroom.students.count)
+            }
             return Array(classroom.students)
         }
         else{
@@ -94,6 +103,46 @@ class ClassroomViewModel: ObservableObject {
                     }
 
                     let createOrUpdateClassroomRequestObj = CreateOrUpdateClassroomRequest(_id: classroom.beIdentifier, roomName: classroom.roomName, students: newStudentList, professor: newProfessor)
+
+                    do{
+                        self.createOrUpdateClassroomRequest = try JSONEncoder().encode(createOrUpdateClassroomRequestObj)
+                    }
+                    catch{
+
+                    }
+
+                }
+            }
+        }
+    }
+
+    public func prepareDeleteStudentRequest(student:Student?){
+        if let classroom = realm.objects(Classroom.self).filter("beIdentifier = %@", self.classroomIdentidier).first{
+
+
+            let id = classroom.beIdentifier
+
+            if let url = URL(string:Endpoint.getCreateClassroomUrl(withId: id)){
+                do {
+                    print("createClassroom:URL-->\(url.absoluteString)")
+                    var request = URLRequest(url: url)
+                    request.httpMethod = "PUT"
+                    var newStudentList:[Student] = []
+                    if let student = student{
+                        for s in classroom.students{
+                            if(s.beIdentifier != student.beIdentifier){
+                                newStudentList.append(s)
+                            }
+                        }
+                    }
+                    else{
+                        newStudentList =  Array(classroom.students)
+                    }
+
+
+                    let newProfessor:Professor? = classroom.professor
+
+                    let createOrUpdateClassroomRequestObj = CreateOrUpdateClassroomRequest(_id: classroom.beIdentifier, roomName: classroom.roomName, students: (newStudentList.isEmpty ? nil : newStudentList), professor: newProfessor)
 
                     do{
                         self.createOrUpdateClassroomRequest = try JSONEncoder().encode(createOrUpdateClassroomRequestObj)

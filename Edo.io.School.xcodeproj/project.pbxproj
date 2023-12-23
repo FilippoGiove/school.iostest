@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C6E7DE3B7B8C2AD8318293AA /* Pods_Edo_io_School.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF962DFE188ED61A6627018 /* Pods_Edo_io_School.framework */; };
+		EE0CAEFB2B369437006F3211 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAEFA2B369437006F3211 /* StudentView.swift */; };
 		EE92DA302B35DD4B00BFB99B /* Realm+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE92DA2F2B35DD4B00BFB99B /* Realm+Codable.swift */; };
 		EE92DA342B36126200BFB99B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE92DA332B36126100BFB99B /* SearchViewModel.swift */; };
 		EEA346942B3209600049AAF0 /* Edo_io_SchoolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA346932B3209600049AAF0 /* Edo_io_SchoolApp.swift */; };
@@ -48,6 +49,7 @@
 		216B4E8E046BD7983F61A1DB /* Pods-Edo.io.School.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Edo.io.School.debug.xcconfig"; path = "Target Support Files/Pods-Edo.io.School/Pods-Edo.io.School.debug.xcconfig"; sourceTree = "<group>"; };
 		291AB1927754673BB2715159 /* Pods-Edo.io.School.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Edo.io.School.release.xcconfig"; path = "Target Support Files/Pods-Edo.io.School/Pods-Edo.io.School.release.xcconfig"; sourceTree = "<group>"; };
 		4DF962DFE188ED61A6627018 /* Pods_Edo_io_School.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Edo_io_School.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE0CAEFA2B369437006F3211 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
 		EE92DA2F2B35DD4B00BFB99B /* Realm+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Codable.swift"; sourceTree = "<group>"; };
 		EE92DA332B36126100BFB99B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		EEA346902B3209600049AAF0 /* Edo.io.School.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Edo.io.School.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +171,7 @@
 				EEA39E372B32B6100010C2DA /* TabbedBar.swift */,
 				EEA39E3D2B32BBD80010C2DA /* SearchView.swift */,
 				EED3775C2B34AC7A0041669C /* ClassroomView.swift */,
+				EE0CAEFA2B369437006F3211 /* StudentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				EED3775D2B34AC7A0041669C /* ClassroomView.swift in Sources */,
 				EEA346A22B320A5D0049AAF0 /* SplashView.swift in Sources */,
 				EE92DA302B35DD4B00BFB99B /* Realm+Codable.swift in Sources */,
+				EE0CAEFB2B369437006F3211 /* StudentView.swift in Sources */,
 				EED3775F2B34B0C10041669C /* ClassroomViewModel.swift in Sources */,
 				EEA346A62B320CE10049AAF0 /* ViewCoordinator.swift in Sources */,
 				EED3773F2B3418DA0041669C /* APIManager.swift in Sources */,

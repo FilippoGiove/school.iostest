@@ -18,7 +18,6 @@ class SearchViewModel: ObservableObject {
 
 
 
-    let realm = try! Realm()
 
 
     func initSearchData(){
@@ -28,12 +27,14 @@ class SearchViewModel: ObservableObject {
     }
 
     private func getAllStudents(){
+        let realm = try! Realm()
         let studentsFromRealm = realm.objects(Student.self)
         self.students = Array(studentsFromRealm)
         print("FOUND:\(students.count) students")
     }
 
     private func getAllProfessors(){
+        let realm = try! Realm()
         let professorsFromRealm = realm.objects(Professor.self)
         self.professors = Array(professorsFromRealm)
         print("FOUND:\(professors.count) professors")
@@ -41,7 +42,11 @@ class SearchViewModel: ObservableObject {
     }
 
     public func findAllStudents(withName searchText:String){
+        print("findAllStudents")
         if(searchText.isEmpty){
+            let realm = try! Realm()
+            let studentsFromRealm = realm.objects(Student.self)
+            self.students = Array(studentsFromRealm)
             self.filteredStudents = self.students
         }
         else{
@@ -53,7 +58,12 @@ class SearchViewModel: ObservableObject {
     }
 
     public func findAllProfessors(withName searchText:String){
+        print("findAllProfessors")
+
         if(searchText.isEmpty){
+            let realm = try! Realm()
+            let professorsFromRealm = realm.objects(Professor.self)
+            self.professors = Array(professorsFromRealm)
             self.filteredProfessors = self.professors
         }
         else{
