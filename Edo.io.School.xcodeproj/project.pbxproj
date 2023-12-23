@@ -10,6 +10,9 @@
 		C6E7DE3B7B8C2AD8318293AA /* Pods_Edo_io_School.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF962DFE188ED61A6627018 /* Pods_Edo_io_School.framework */; };
 		EE0CAEFB2B369437006F3211 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAEFA2B369437006F3211 /* StudentView.swift */; };
 		EE0CAEFD2B36A8AE006F3211 /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAEFC2B36A8AE006F3211 /* StudentViewModel.swift */; };
+		EE0CAEFF2B36B4BC006F3211 /* ProfessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAEFE2B36B4BC006F3211 /* ProfessorView.swift */; };
+		EE0CAF012B36B51D006F3211 /* ProfessorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAF002B36B51D006F3211 /* ProfessorViewModel.swift */; };
+		EE0CAF032B36BDC2006F3211 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAF022B36BDC2006F3211 /* RealmHelper.swift */; };
 		EE92DA302B35DD4B00BFB99B /* Realm+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE92DA2F2B35DD4B00BFB99B /* Realm+Codable.swift */; };
 		EE92DA342B36126200BFB99B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE92DA332B36126100BFB99B /* SearchViewModel.swift */; };
 		EEA346942B3209600049AAF0 /* Edo_io_SchoolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA346932B3209600049AAF0 /* Edo_io_SchoolApp.swift */; };
@@ -52,6 +55,9 @@
 		4DF962DFE188ED61A6627018 /* Pods_Edo_io_School.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Edo_io_School.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE0CAEFA2B369437006F3211 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
 		EE0CAEFC2B36A8AE006F3211 /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
+		EE0CAEFE2B36B4BC006F3211 /* ProfessorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorView.swift; sourceTree = "<group>"; };
+		EE0CAF002B36B51D006F3211 /* ProfessorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorViewModel.swift; sourceTree = "<group>"; };
+		EE0CAF022B36BDC2006F3211 /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		EE92DA2F2B35DD4B00BFB99B /* Realm+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Codable.swift"; sourceTree = "<group>"; };
 		EE92DA332B36126100BFB99B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		EEA346902B3209600049AAF0 /* Edo.io.School.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Edo.io.School.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +180,7 @@
 				EEA39E3D2B32BBD80010C2DA /* SearchView.swift */,
 				EED3775C2B34AC7A0041669C /* ClassroomView.swift */,
 				EE0CAEFA2B369437006F3211 /* StudentView.swift */,
+				EE0CAEFE2B36B4BC006F3211 /* ProfessorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,6 +220,7 @@
 			children = (
 				EEA39E4B2B32C8BA0010C2DA /* API */,
 				EEA39E4A2B32C8AF0010C2DA /* Model */,
+				EE0CAF022B36BDC2006F3211 /* RealmHelper.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -224,6 +232,7 @@
 				EED3775E2B34B0C10041669C /* ClassroomViewModel.swift */,
 				EE92DA332B36126100BFB99B /* SearchViewModel.swift */,
 				EE0CAEFC2B36A8AE006F3211 /* StudentViewModel.swift */,
+				EE0CAF002B36B51D006F3211 /* ProfessorViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -421,10 +430,12 @@
 			files = (
 				EED377442B341DDF0041669C /* HomeViewModel.swift in Sources */,
 				EED377562B34A2BD0041669C /* LoaderView.swift in Sources */,
+				EE0CAF012B36B51D006F3211 /* ProfessorViewModel.swift in Sources */,
 				EED3774B2B3440B30041669C /* CreateOrUpdateClassroomResponse.swift in Sources */,
 				EEA39E2C2B32A5710010C2DA /* SideMenuRowType.swift in Sources */,
 				EEA39E382B32B6100010C2DA /* TabbedBar.swift in Sources */,
 				EEA39E362B32A8B40010C2DA /* SettingsView.swift in Sources */,
+				EE0CAF032B36BDC2006F3211 /* RealmHelper.swift in Sources */,
 				EEA39E342B32A6580010C2DA /* String+Extensions.swift in Sources */,
 				EEA346A42B320B840049AAF0 /* HomeView.swift in Sources */,
 				EEA39E492B32C86B0010C2DA /* Classroom.swift in Sources */,
@@ -449,6 +460,7 @@
 				EEA39E3E2B32BBD80010C2DA /* SearchView.swift in Sources */,
 				EEA39E412B32C0660010C2DA /* FloatingButton.swift in Sources */,
 				EED377582B34A3A10041669C /* View+Extension.swift in Sources */,
+				EE0CAEFF2B36B4BC006F3211 /* ProfessorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

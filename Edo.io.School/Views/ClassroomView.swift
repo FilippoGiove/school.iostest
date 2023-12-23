@@ -199,7 +199,7 @@ struct ClassroomProfessorView: View {
                             Spacer()
                             Button {
                                 if(viewModel.getProfessor() != nil){
-
+                                    viewModel.testShow.toggle()
                                 }
                                 else{
                                     self.showingAddNewProfessorAlert.toggle()
@@ -210,6 +210,9 @@ struct ClassroomProfessorView: View {
                                     .scaledToFit()
                                     .padding(5)
                                     .frame(width: 30, height: 30)
+                            }.navigationDestination(
+                                isPresented:$viewModel.testShow){
+                                   ProfessorView(viewModel.getProfessor()!)
                             }
                         }
                         .padding(standardPadding)

@@ -42,7 +42,10 @@
 "ENTER_STUDENT_ERROR" = "Please insert all mandatory fields";
 "ENTER_PROFESSOR_ERROR" = "Please insert all mandatory fields";
 
-"SUBJECTS" = "Subjects separated by a comma";
+"SUBJECTS" = "Subjects";
+"FULLNAME" = "Fullname";
 
 "STUDENTS_FOUND" = "Students founds: ";
 "PROFESSORS_FOUND" = "Professors founds: ";
+"BASIC_INFO" = "Basic Information";
+"SAVE" = "Save";

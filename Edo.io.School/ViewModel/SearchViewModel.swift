@@ -58,7 +58,7 @@ class SearchViewModel: ObservableObject {
     }
 
     public func findAllProfessors(withName searchText:String){
-        print("findAllProfessors")
+        print("findAllStudents")
 
         if(searchText.isEmpty){
             let realm = try! Realm()
