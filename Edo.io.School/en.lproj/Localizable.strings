@@ -1,0 +1,54 @@
+/* 
+  Localizable.strings
+  Edo.io.School
+
+  Created by Filippo Giove on 20/12/23.
+  
+*/
+
+"LOGOUT" = "Logout";
+"SETTINGS" = "Settings";
+"CLASSROOMS" = "Classrooms";
+"CLASSROOM" = "Classroom";
+"SEARCH_VIEW_TITLE" = "Search";
+
+"NO_CLASSROOM_MESSAGE" = "No classroom has been added to shool yet.\nPlease insert first to start!";
+
+"HOME" = "Home";
+"SEARCH" = "Search";
+"SETTINGS" = "Settings";
+
+"ENTER_CLASSROOM_NAME" = "Insert classroom name";
+"SAVE" = "Save";
+"CLOSE" = "Close";
+
+"ATTENTION" = "Attention";
+"ERROR_API_DETAILS" = "An error occurs!\nDetails:\n";
+
+"STUDENTS" = "Students";
+"PROFESSOR" = "Professor";
+
+"NO_PROFESSOR_ADDED" = "No professor added in this classroom";
+
+"NEW_STUDENT" = "New student";
+"NEW_CLASSROOM" = "New classroom";
+
+"ENTER_STUDENT_DATA" = "Insert new student info";
+"ENTER_PROFESSOR_DATA" = "Insert new student info";
+
+"FULLNAME_REQUIRED" = "Fullname*";
+"EMAIL_REQUIRED" = "E-mail*";
+"NEW_PROFESSOR" = "New professor";
+"ENTER_STUDENT_ERROR" = "Please insert all mandatory fields";
+"ENTER_PROFESSOR_ERROR" = "Please insert all mandatory fields";
+
+"SUBJECTS" = "Subjects";
+"FULLNAME" = "Fullname";
+
+"STUDENTS_FOUND" = "Students founds";
+"PROFESSORS_FOUND" = "Professors founds";
+"BASIC_INFO" = "Basic Information";
+"SAVE" = "Save";
+
+"DB_DELETED" = "App data has been raised.";
+"SEARCH_PLACEHOLDER" = "Search professors / students";

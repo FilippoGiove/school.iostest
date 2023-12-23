@@ -1,0 +1,698 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C6E7DE3B7B8C2AD8318293AA /* Pods_Edo_io_School.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF962DFE188ED61A6627018 /* Pods_Edo_io_School.framework */; };
+		EE0CAEFB2B369437006F3211 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAEFA2B369437006F3211 /* StudentView.swift */; };
+		EE0CAEFD2B36A8AE006F3211 /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAEFC2B36A8AE006F3211 /* StudentViewModel.swift */; };
+		EE0CAEFF2B36B4BC006F3211 /* ProfessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAEFE2B36B4BC006F3211 /* ProfessorView.swift */; };
+		EE0CAF012B36B51D006F3211 /* ProfessorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAF002B36B51D006F3211 /* ProfessorViewModel.swift */; };
+		EE0CAF032B36BDC2006F3211 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAF022B36BDC2006F3211 /* RealmHelper.swift */; };
+		EE0CAF062B36CDC0006F3211 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CAF052B36CDC0006F3211 /* SettingsViewModel.swift */; };
+		EE92DA302B35DD4B00BFB99B /* Realm+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE92DA2F2B35DD4B00BFB99B /* Realm+Codable.swift */; };
+		EE92DA342B36126200BFB99B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE92DA332B36126100BFB99B /* SearchViewModel.swift */; };
+		EEA346942B3209600049AAF0 /* Edo_io_SchoolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA346932B3209600049AAF0 /* Edo_io_SchoolApp.swift */; };
+		EEA346982B3209650049AAF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA346972B3209650049AAF0 /* Assets.xcassets */; };
+		EEA3469B2B3209650049AAF0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA3469A2B3209650049AAF0 /* Preview Assets.xcassets */; };
+		EEA346A22B320A5D0049AAF0 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA346A12B320A5B0049AAF0 /* SplashView.swift */; };
+		EEA346A42B320B840049AAF0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA346A32B320B840049AAF0 /* HomeView.swift */; };
+		EEA346A62B320CE10049AAF0 /* ViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA346A52B320CE10049AAF0 /* ViewCoordinator.swift */; };
+		EEA39E2C2B32A5710010C2DA /* SideMenuRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E2B2B32A5710010C2DA /* SideMenuRowType.swift */; };
+		EEA39E2F2B32A5FB0010C2DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EEA39E312B32A5FB0010C2DA /* Localizable.strings */; };
+		EEA39E342B32A6580010C2DA /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E332B32A6580010C2DA /* String+Extensions.swift */; };
+		EEA39E362B32A8B40010C2DA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E352B32A8B40010C2DA /* SettingsView.swift */; };
+		EEA39E382B32B6100010C2DA /* TabbedBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E372B32B6100010C2DA /* TabbedBar.swift */; };
+		EEA39E3A2B32BA510010C2DA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E392B32BA510010C2DA /* Constants.swift */; };
+		EEA39E3C2B32BA640010C2DA /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E3B2B32BA640010C2DA /* Font+Extension.swift */; };
+		EEA39E3E2B32BBD80010C2DA /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E3D2B32BBD80010C2DA /* SearchView.swift */; };
+		EEA39E412B32C0660010C2DA /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E402B32C0660010C2DA /* FloatingButton.swift */; };
+		EEA39E452B32C6C30010C2DA /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E442B32C6C30010C2DA /* Student.swift */; };
+		EEA39E472B32C7160010C2DA /* Professor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E462B32C7160010C2DA /* Professor.swift */; };
+		EEA39E492B32C86B0010C2DA /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E482B32C86B0010C2DA /* Classroom.swift */; };
+		EEA39E4D2B32C8D10010C2DA /* ListClassroomsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39E4C2B32C8D10010C2DA /* ListClassroomsResponse.swift */; };
+		EED3773F2B3418DA0041669C /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED3773E2B3418DA0041669C /* APIManager.swift */; };
+		EED377422B341A590041669C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED377412B341A590041669C /* Endpoint.swift */; };
+		EED377442B341DDF0041669C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED377432B341DDF0041669C /* HomeViewModel.swift */; };
+		EED377492B343CDE0041669C /* CreateOrUpdateClassroomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED377482B343CDE0041669C /* CreateOrUpdateClassroomRequest.swift */; };
+		EED3774B2B3440B30041669C /* CreateOrUpdateClassroomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED3774A2B3440B20041669C /* CreateOrUpdateClassroomResponse.swift */; };
+		EED377512B349BA50041669C /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EED3774E2B349BA40041669C /* Roboto-Light.ttf */; };
+		EED377522B349BA50041669C /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EED3774F2B349BA50041669C /* Roboto-Regular.ttf */; };
+		EED377532B349BA50041669C /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EED377502B349BA50041669C /* Roboto-Bold.ttf */; };
+		EED377562B34A2BD0041669C /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED377552B34A2BD0041669C /* LoaderView.swift */; };
+		EED377582B34A3A10041669C /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED377572B34A3A10041669C /* View+Extension.swift */; };
+		EED3775B2B34AA960041669C /* DeleteClassroomResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED3775A2B34AA950041669C /* DeleteClassroomResponse.swift */; };
+		EED3775D2B34AC7A0041669C /* ClassroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED3775C2B34AC7A0041669C /* ClassroomView.swift */; };
+		EED3775F2B34B0C10041669C /* ClassroomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED3775E2B34B0C10041669C /* ClassroomViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		216B4E8E046BD7983F61A1DB /* Pods-Edo.io.School.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Edo.io.School.debug.xcconfig"; path = "Target Support Files/Pods-Edo.io.School/Pods-Edo.io.School.debug.xcconfig"; sourceTree = "<group>"; };
+		291AB1927754673BB2715159 /* Pods-Edo.io.School.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Edo.io.School.release.xcconfig"; path = "Target Support Files/Pods-Edo.io.School/Pods-Edo.io.School.release.xcconfig"; sourceTree = "<group>"; };
+		4DF962DFE188ED61A6627018 /* Pods_Edo_io_School.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Edo_io_School.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE0CAEFA2B369437006F3211 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
+		EE0CAEFC2B36A8AE006F3211 /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
+		EE0CAEFE2B36B4BC006F3211 /* ProfessorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorView.swift; sourceTree = "<group>"; };
+		EE0CAF002B36B51D006F3211 /* ProfessorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessorViewModel.swift; sourceTree = "<group>"; };
+		EE0CAF022B36BDC2006F3211 /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		EE0CAF052B36CDC0006F3211 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		EE92DA2F2B35DD4B00BFB99B /* Realm+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Codable.swift"; sourceTree = "<group>"; };
+		EE92DA332B36126100BFB99B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		EEA346902B3209600049AAF0 /* Edo.io.School.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Edo.io.School.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEA346932B3209600049AAF0 /* Edo_io_SchoolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edo_io_SchoolApp.swift; sourceTree = "<group>"; };
+		EEA346972B3209650049AAF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EEA3469A2B3209650049AAF0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EEA346A12B320A5B0049AAF0 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		EEA346A32B320B840049AAF0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EEA346A52B320CE10049AAF0 /* ViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoordinator.swift; sourceTree = "<group>"; };
+		EEA39E2B2B32A5710010C2DA /* SideMenuRowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuRowType.swift; sourceTree = "<group>"; };
+		EEA39E302B32A5FB0010C2DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EEA39E332B32A6580010C2DA /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		EEA39E352B32A8B40010C2DA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EEA39E372B32B6100010C2DA /* TabbedBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbedBar.swift; sourceTree = "<group>"; };
+		EEA39E392B32BA510010C2DA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EEA39E3B2B32BA640010C2DA /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		EEA39E3D2B32BBD80010C2DA /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		EEA39E402B32C0660010C2DA /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		EEA39E442B32C6C30010C2DA /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		EEA39E462B32C7160010C2DA /* Professor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Professor.swift; sourceTree = "<group>"; };
+		EEA39E482B32C86B0010C2DA /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
+		EEA39E4C2B32C8D10010C2DA /* ListClassroomsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListClassroomsResponse.swift; sourceTree = "<group>"; };
+		EED3773E2B3418DA0041669C /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		EED377412B341A590041669C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		EED377432B341DDF0041669C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		EED377482B343CDE0041669C /* CreateOrUpdateClassroomRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrUpdateClassroomRequest.swift; sourceTree = "<group>"; };
+		EED3774A2B3440B20041669C /* CreateOrUpdateClassroomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrUpdateClassroomResponse.swift; sourceTree = "<group>"; };
+		EED3774E2B349BA40041669C /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		EED3774F2B349BA50041669C /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		EED377502B349BA50041669C /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		EED377542B349BDD0041669C /* Edo-io-School-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Edo-io-School-Info.plist"; sourceTree = SOURCE_ROOT; };
+		EED377552B34A2BD0041669C /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		EED377572B34A3A10041669C /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		EED3775A2B34AA950041669C /* DeleteClassroomResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteClassroomResponse.swift; sourceTree = "<group>"; };
+		EED3775C2B34AC7A0041669C /* ClassroomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomView.swift; sourceTree = "<group>"; };
+		EED3775E2B34B0C10041669C /* ClassroomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EEA3468D2B3209600049AAF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6E7DE3B7B8C2AD8318293AA /* Pods_Edo_io_School.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4BC396DE85DF32DC9259CF4C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				216B4E8E046BD7983F61A1DB /* Pods-Edo.io.School.debug.xcconfig */,
+				291AB1927754673BB2715159 /* Pods-Edo.io.School.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		91B9E7DC0D97D05410FEF133 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DF962DFE188ED61A6627018 /* Pods_Edo_io_School.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EEA346872B3209600049AAF0 = {
+			isa = PBXGroup;
+			children = (
+				EEA346922B3209600049AAF0 /* Edo.io.School */,
+				EEA346912B3209600049AAF0 /* Products */,
+				4BC396DE85DF32DC9259CF4C /* Pods */,
+				91B9E7DC0D97D05410FEF133 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EEA346912B3209600049AAF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EEA346902B3209600049AAF0 /* Edo.io.School.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EEA346922B3209600049AAF0 /* Edo.io.School */ = {
+			isa = PBXGroup;
+			children = (
+				EED377542B349BDD0041669C /* Edo-io-School-Info.plist */,
+				EED3774C2B349B710041669C /* Resources */,
+				EEA346932B3209600049AAF0 /* Edo_io_SchoolApp.swift */,
+				EEA39E272B32A4860010C2DA /* Views */,
+				EEA39E432B32C6750010C2DA /* ViewModel */,
+				EEA39E2A2B32A55B0010C2DA /* Utils */,
+				EEA39E422B32C6430010C2DA /* Network */,
+				EEA346972B3209650049AAF0 /* Assets.xcassets */,
+				EEA346992B3209650049AAF0 /* Preview Content */,
+				EEA39E312B32A5FB0010C2DA /* Localizable.strings */,
+			);
+			path = Edo.io.School;
+			sourceTree = "<group>";
+		};
+		EEA346992B3209650049AAF0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EEA3469A2B3209650049AAF0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EEA39E272B32A4860010C2DA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EEA39E3F2B32C0580010C2DA /* Components */,
+				EEA346A52B320CE10049AAF0 /* ViewCoordinator.swift */,
+				EEA346A12B320A5B0049AAF0 /* SplashView.swift */,
+				EEA346A32B320B840049AAF0 /* HomeView.swift */,
+				EEA39E352B32A8B40010C2DA /* SettingsView.swift */,
+				EEA39E372B32B6100010C2DA /* TabbedBar.swift */,
+				EEA39E3D2B32BBD80010C2DA /* SearchView.swift */,
+				EED3775C2B34AC7A0041669C /* ClassroomView.swift */,
+				EE0CAEFA2B369437006F3211 /* StudentView.swift */,
+				EE0CAEFE2B36B4BC006F3211 /* ProfessorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EEA39E2A2B32A55B0010C2DA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EEA39E322B32A6440010C2DA /* Extension */,
+				EEA39E2B2B32A5710010C2DA /* SideMenuRowType.swift */,
+				EEA39E392B32BA510010C2DA /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EEA39E322B32A6440010C2DA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EEA39E332B32A6580010C2DA /* String+Extensions.swift */,
+				EEA39E3B2B32BA640010C2DA /* Font+Extension.swift */,
+				EED377572B34A3A10041669C /* View+Extension.swift */,
+				EE92DA2F2B35DD4B00BFB99B /* Realm+Codable.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		EEA39E3F2B32C0580010C2DA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EEA39E402B32C0660010C2DA /* FloatingButton.swift */,
+				EED377552B34A2BD0041669C /* LoaderView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EEA39E422B32C6430010C2DA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EEA39E4B2B32C8BA0010C2DA /* API */,
+				EEA39E4A2B32C8AF0010C2DA /* Model */,
+				EE0CAF022B36BDC2006F3211 /* RealmHelper.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EEA39E432B32C6750010C2DA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EED377432B341DDF0041669C /* HomeViewModel.swift */,
+				EED3775E2B34B0C10041669C /* ClassroomViewModel.swift */,
+				EE92DA332B36126100BFB99B /* SearchViewModel.swift */,
+				EE0CAEFC2B36A8AE006F3211 /* StudentViewModel.swift */,
+				EE0CAF002B36B51D006F3211 /* ProfessorViewModel.swift */,
+				EE0CAF052B36CDC0006F3211 /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EEA39E4A2B32C8AF0010C2DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EEA39E442B32C6C30010C2DA /* Student.swift */,
+				EEA39E462B32C7160010C2DA /* Professor.swift */,
+				EEA39E482B32C86B0010C2DA /* Classroom.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EEA39E4B2B32C8BA0010C2DA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				EED377402B341A4A0041669C /* Endpoint */,
+				EED377592B34AA7E0041669C /* DeleteClassroom */,
+				EED377472B343CC40041669C /* CreateClassroom */,
+				EED3773D2B3418770041669C /* ListClassrooms */,
+				EED3773E2B3418DA0041669C /* APIManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		EED3773D2B3418770041669C /* ListClassrooms */ = {
+			isa = PBXGroup;
+			children = (
+				EEA39E4C2B32C8D10010C2DA /* ListClassroomsResponse.swift */,
+			);
+			path = ListClassrooms;
+			sourceTree = "<group>";
+		};
+		EED377402B341A4A0041669C /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				EED377412B341A590041669C /* Endpoint.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		EED377472B343CC40041669C /* CreateClassroom */ = {
+			isa = PBXGroup;
+			children = (
+				EED377482B343CDE0041669C /* CreateOrUpdateClassroomRequest.swift */,
+				EED3774A2B3440B20041669C /* CreateOrUpdateClassroomResponse.swift */,
+			);
+			path = CreateClassroom;
+			sourceTree = "<group>";
+		};
+		EED3774C2B349B710041669C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EED3774D2B349B7D0041669C /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EED3774D2B349B7D0041669C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EED377502B349BA50041669C /* Roboto-Bold.ttf */,
+				EED3774E2B349BA40041669C /* Roboto-Light.ttf */,
+				EED3774F2B349BA50041669C /* Roboto-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		EED377592B34AA7E0041669C /* DeleteClassroom */ = {
+			isa = PBXGroup;
+			children = (
+				EED3775A2B34AA950041669C /* DeleteClassroomResponse.swift */,
+			);
+			path = DeleteClassroom;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EEA3468F2B3209600049AAF0 /* Edo.io.School */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEA3469E2B3209650049AAF0 /* Build configuration list for PBXNativeTarget "Edo.io.School" */;
+			buildPhases = (
+				E8AF1AF41C5EC2E4FEA31457 /* [CP] Check Pods Manifest.lock */,
+				EEA3468C2B3209600049AAF0 /* Sources */,
+				EEA3468D2B3209600049AAF0 /* Frameworks */,
+				EEA3468E2B3209600049AAF0 /* Resources */,
+				689DDE6924C8B4BAE98A76E5 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Edo.io.School;
+			productName = Edo.io.School;
+			productReference = EEA346902B3209600049AAF0 /* Edo.io.School.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EEA346882B3209600049AAF0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					EEA3468F2B3209600049AAF0 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = EEA3468B2B3209600049AAF0 /* Build configuration list for PBXProject "Edo.io.School" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EEA346872B3209600049AAF0;
+			productRefGroup = EEA346912B3209600049AAF0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EEA3468F2B3209600049AAF0 /* Edo.io.School */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EEA3468E2B3209600049AAF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEA3469B2B3209650049AAF0 /* Preview Assets.xcassets in Resources */,
+				EEA39E2F2B32A5FB0010C2DA /* Localizable.strings in Resources */,
+				EED377532B349BA50041669C /* Roboto-Bold.ttf in Resources */,
+				EED377522B349BA50041669C /* Roboto-Regular.ttf in Resources */,
+				EED377512B349BA50041669C /* Roboto-Light.ttf in Resources */,
+				EEA346982B3209650049AAF0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		689DDE6924C8B4BAE98A76E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Edo.io.School/Pods-Edo.io.School-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Edo.io.School/Pods-Edo.io.School-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Edo.io.School/Pods-Edo.io.School-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8AF1AF41C5EC2E4FEA31457 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Edo.io.School-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EEA3468C2B3209600049AAF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EED377442B341DDF0041669C /* HomeViewModel.swift in Sources */,
+				EED377562B34A2BD0041669C /* LoaderView.swift in Sources */,
+				EE0CAF012B36B51D006F3211 /* ProfessorViewModel.swift in Sources */,
+				EED3774B2B3440B30041669C /* CreateOrUpdateClassroomResponse.swift in Sources */,
+				EEA39E2C2B32A5710010C2DA /* SideMenuRowType.swift in Sources */,
+				EEA39E382B32B6100010C2DA /* TabbedBar.swift in Sources */,
+				EEA39E362B32A8B40010C2DA /* SettingsView.swift in Sources */,
+				EE0CAF032B36BDC2006F3211 /* RealmHelper.swift in Sources */,
+				EEA39E342B32A6580010C2DA /* String+Extensions.swift in Sources */,
+				EEA346A42B320B840049AAF0 /* HomeView.swift in Sources */,
+				EEA39E492B32C86B0010C2DA /* Classroom.swift in Sources */,
+				EEA346942B3209600049AAF0 /* Edo_io_SchoolApp.swift in Sources */,
+				EEA39E3C2B32BA640010C2DA /* Font+Extension.swift in Sources */,
+				EEA39E472B32C7160010C2DA /* Professor.swift in Sources */,
+				EE0CAEFD2B36A8AE006F3211 /* StudentViewModel.swift in Sources */,
+				EEA39E452B32C6C30010C2DA /* Student.swift in Sources */,
+				EED3775B2B34AA960041669C /* DeleteClassroomResponse.swift in Sources */,
+				EED377492B343CDE0041669C /* CreateOrUpdateClassroomRequest.swift in Sources */,
+				EED377422B341A590041669C /* Endpoint.swift in Sources */,
+				EED3775D2B34AC7A0041669C /* ClassroomView.swift in Sources */,
+				EEA346A22B320A5D0049AAF0 /* SplashView.swift in Sources */,
+				EE92DA302B35DD4B00BFB99B /* Realm+Codable.swift in Sources */,
+				EE0CAEFB2B369437006F3211 /* StudentView.swift in Sources */,
+				EED3775F2B34B0C10041669C /* ClassroomViewModel.swift in Sources */,
+				EEA346A62B320CE10049AAF0 /* ViewCoordinator.swift in Sources */,
+				EE0CAF062B36CDC0006F3211 /* SettingsViewModel.swift in Sources */,
+				EED3773F2B3418DA0041669C /* APIManager.swift in Sources */,
+				EE92DA342B36126200BFB99B /* SearchViewModel.swift in Sources */,
+				EEA39E3A2B32BA510010C2DA /* Constants.swift in Sources */,
+				EEA39E4D2B32C8D10010C2DA /* ListClassroomsResponse.swift in Sources */,
+				EEA39E3E2B32BBD80010C2DA /* SearchView.swift in Sources */,
+				EEA39E412B32C0660010C2DA /* FloatingButton.swift in Sources */,
+				EED377582B34A3A10041669C /* View+Extension.swift in Sources */,
+				EE0CAEFF2B36B4BC006F3211 /* ProfessorView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EEA39E312B32A5FB0010C2DA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEA39E302B32A5FB0010C2DA /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EEA3469C2B3209650049AAF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EEA3469D2B3209650049AAF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EEA3469F2B3209650049AAF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 216B4E8E046BD7983F61A1DB /* Pods-Edo.io.School.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Edo.io.School/Preview Content\"";
+				DEVELOPMENT_TEAM = J7BFLD66KP;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Edo-io-School-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.doadoa.edo.io.iostest.Edo-io-School";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EEA346A02B3209650049AAF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 291AB1927754673BB2715159 /* Pods-Edo.io.School.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Edo.io.School/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J7BFLD66KP;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Edo-io-School-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.doadoa.edo.io.iostest.Edo-io-School";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Edo.io.school.dev;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EEA3468B2B3209600049AAF0 /* Build configuration list for PBXProject "Edo.io.School" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEA3469C2B3209650049AAF0 /* Debug */,
+				EEA3469D2B3209650049AAF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEA3469E2B3209650049AAF0 /* Build configuration list for PBXNativeTarget "Edo.io.School" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEA3469F2B3209650049AAF0 /* Debug */,
+				EEA346A02B3209650049AAF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EEA346882B3209600049AAF0 /* Project object */;
+}
